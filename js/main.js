@@ -1,7 +1,7 @@
 
 var app = angular.module('MyApp',['ngMaterial', 'nvd3']);
 
-app.controller('AppCtrl', function($scope) {
+app.controller('AppCtrl', function($scope, $http) {
 
   // initialize with at least something
   $scope.displayText = "Hello World";
@@ -50,22 +50,7 @@ $scope.data = [{
     ]
 }];
 
-
-  var MESSAGE_SCHEMA = {
-    "type": 'object',
-    "properties": {
-      "text": {
-        "type": "string"
-      }
-    }
-  };
-
-  $scope.payload = function(data){
-    $scope.displayText = data.payload.text;
-    $scope.$apply()
-  }
-
-  var GET = {};
+var GET = {};
   var query = window.location.search.substring(1).split("&");
   for (var i = 0, max = query.length; i < max; i++)
   {
@@ -75,35 +60,14 @@ $scope.data = [{
     GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || "");
   }
 
-  var conn = meshblu.createConnection({
-    "uuid": GET.uuid,
-    "token": GET.token
+  var url = 'http://fracture.cc:8072/psychopass/' + GET.user;
+  $http({
+    method: 'GET',
+    url: url
+  }).then(function successCallback(response) {
+    $scope.psychoPass = response.data;
+  }, function errorCallback(response) {
   });
 
-  conn.on('ready', function(data){
-    console.log('UUID AUTHENTICATED!');
-    console.log(data);
-    conn.update({
-      "uuid": GET.uuid,
-      "messageSchema": MESSAGE_SCHEMA
-    });
-
-    conn.on('message', function(data){
-      $scope.payload(data);
-    });
-
-    $scope.sendMessage = function(){
-      console.log('sending message!');
-      var message = {
-        "devices": "*",
-        "payload": {
-          "ngclickEvent": true
-        }
-      };
-      conn.message(message);
-    }
-
-
-  });
 
 });

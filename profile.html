@@ -1,0 +1,154 @@
+
+<html>
+<head>
+  <link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css'>
+  <link rel="stylesheet" href="./css/main.css" >
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-aria.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-messages.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
+
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
+  <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+  <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
+
+  <script src="./testData.js" ></script>
+  <script src="./js/main.js" ></script>
+
+  <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+li a {
+    display: block;
+    border-radius: 25px;
+    padding: 3px;
+    background-color: black;
+    color: white;
+}
+
+li.topBar a {
+    display: block;
+    background-color: #0091ea;
+    color: white;
+}
+
+.color-box {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-color: #ccc;
+    padding: 5px;
+}
+
+.color-box-lg {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.crop {
+    width: 233px;
+    height: 287px;
+    overflow: hidden;
+}
+
+</style>
+</head>
+
+<body ng-app="MyApp" ng-controller="AppCtrl" layout="column">
+  <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+    <md-whiteframe class="md-whiteframe-1dp" layout="column" flex-xs flex-gt-xs="50">
+      <span class="md-subhead">PSYCHOPASS CARD</span>
+      <ul>
+        <li class="topBar"><a>  Result</a></li>
+      </ul>
+    <div  layout="column">
+      <div layout="row">
+        <div class="md-padding" flex-xs flex-gt-xs="50" layout="column">
+        <div class="crop">
+        <img ng-src="{{psychoPass.profileImg}}" ng-style="{ 'width': '233px' , 'height': '287px'}" class="md-card-image" alt="Washed Out">
+      </div>
+        <md-content class="md-padding">
+          <p class="md-subhead">|Name  : {{psychoPass.firstName}} {{psychoPass.lastName}}</p>
+          <p class="md-subhead">|Group : {{psychoPass.group}}</p>
+        </md-content>
+      </div>
+
+      <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card>
+          <ul>
+            <li><a>  Mental Color</a></li>
+          </ul>
+          <md-content class="md-padding">
+          <div class="color-box-lg" style="background-color: {{psychoPass.mentalColor}};"></div>
+          <h3 class="md-subhead" style="display: inline;">{{psychoPass.mentalColorName}}</h3>
+        </md-content>
+        </md-card>
+
+        <md-card>
+          <ul>
+            <li><a>  PsychoPass</a></li>
+          </ul>
+          <span class="md-headline"><i>TODAY</i></span>
+          <span layout="column" layout-align="center end">
+            <div>
+              <h1  style="font-size: 60px; display: inline;">{{psychoPass.mainNumber}}</h1>
+              <h2 class="md-display-3" style="display: inline;">/</h2>
+              <h3 class="md-headline" style="display: inline;">+{{psychoPass.mainCf}}</h3>
+
+            </div>
+          </span>
+          <md-divider></md-divider>
+          <div>
+            <div class="color-box" style="background-color: {{psychoPass.secondColor}};"></div>
+            <h3  style="font-size: 13px; display: inline;">{{psychoPass.secondColorName}}  </h3>
+            <h1  style="font-size: 38px; display: inline;">{{psychoPass.secondNumber}}</h1>
+            <h2  style="font-size: 30px; display: inline;">/</h2>
+            <h3  style="font-size: 11px; display: inline;">+{{psychoPass.secondCf}}</h3>
+          </div>
+          <md-divider></md-divider>
+          <div>
+            <div class="color-box" style="background-color: {{psychoPass.thirdColor}};"></div>
+            <h3  style="font-size: 13px; display: inline;">{{psychoPass.thirdColorName}}  </h3>
+            <h1  style="font-size: 38px; display: inline;">{{psychoPass.thirdNumber}}</h1>
+            <h2  style="font-size: 30px; display: inline;">/</h2>
+            <h3  style="font-size: 11px; display: inline;">+{{psychoPass.thirdCf}}</h3>
+          </div>
+        </md-card>
+      </div>
+
+      </div>
+</div>
+
+<div layout="column">
+  <md-card>
+    <ul>
+      <li><a>Color History</a></li>
+    </ul>
+    <md-card-title>
+      <md-card-title-media>
+        <div class="md-media-sm card-media"></div>
+      </md-card-title-media>
+    </md-card-title>
+     <nvd3 options='options' data='data'></nvd3>
+  </md-card>
+</div>
+</md-whiteframe>
+
+  </md-content>
+
+
+</body>
+</html>

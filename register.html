@@ -1,0 +1,49 @@
+
+<html>
+<head>
+  <link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css'>
+  <link rel="stylesheet" href="./css/main.css" >
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-aria.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-messages.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="bower_components/tv4/tv4.js"></script>
+  <script type="text/javascript" src="bower_components/objectpath/lib/ObjectPath.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-schema-form/0.8.12/schema-form.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-schema-form/0.8.12/bootstrap-decorator.js"></script>
+
+  <script src="./js/register.js" ></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="AppCtrl" layout="column">
+
+  <md-content class="md-padding" layout="row" layout-wrap layout-align="center start">
+    <md-card >
+      <md-toolbar class="md-padding">
+        <h3>
+          <span>  PsychoPass Register  </span>
+        </h3>
+      </md-toolbar>
+      <md-card-title-text class="md-padding">
+        <span class="md-headline">Register</span>
+      </md-card-title-text>
+        <form sf-schema="schema" sf-form="form" sf-model="model"></form>
+        <md-button class="md-raised md-primary" ng-click="register()">Register</md-button>
+        <md-button class="md-raised md-primary" ng-href="/login">Login</md-button>
+        <pre ng-bind="modelString">{}<pre>
+
+    </md-card>
+  </md-content>
+
+</body>
+</html>
