@@ -36,9 +36,10 @@
       <md-card-title-text class="md-padding">
         <span class="md-headline">{{displayText}}</span>
       </md-card-title-text>
+        <md-button class="md-raised md-primary" ng-click="view()">View Profile</md-button>
         <form sf-schema="schema" sf-form="form" sf-model="model"></form>
         <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
-        <md-button class="md-raised md-primary" ng-click="view()">View</md-button>
+        <md-button class="md-raised md-primary" ng-click="view()">View Profile</md-button>
     </md-card>
   </md-content>
   <pre ng-bind="modelString">{}<pre>
