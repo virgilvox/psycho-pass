@@ -29,13 +29,10 @@
 
   <md-content class="md-padding" layout="row" layout-wrap layout-align="center start">
     <md-card >
-      <md-toolbar class="md-padding">
-        <h3>
-          <span>  Psycho-Pass Login  </span>
-        </h3>
-      </md-toolbar>
+      <img ng-src="http://vignette2.wikia.nocookie.net/psychopass/images/9/91/Bureau_logo.png" ng-style="{ 'width': '300' , 'height': '300px'}" class="md-card-image" alt="Washed Out">
+
       <md-card-title-text class="md-padding">
-        <span class="md-headline">{{displayText}}</span>
+        <span class="md-headline">Psycho-Pass Login</span>
       </md-card-title-text>
         <form sf-schema="schema" sf-form="form" sf-model="model"></form>
         <md-button class="md-raised md-primary" ng-click="login()">Login</md-button>
