@@ -1,0 +1,18 @@
+{
+  "name": "psycho-pass",
+  "authors": [
+    "virgilvox <moheeb.zara@citrix.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
